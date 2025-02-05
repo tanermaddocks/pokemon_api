@@ -44,6 +44,8 @@ app.get("/", (request, response) => {
 });
 
 app.get("/databaseHealth", (request, response) => {
+	// Data from Mongoose: 
+	// https://mongoosejs.com/docs/api/connection.html
 	response.json({
 		name: mongoose.connection.name, 
 		models: mongoose.connection.modelNames(),
@@ -57,9 +59,10 @@ app.get("/databaseHealth", (request, response) => {
 
 
 const {PokeApiRouter} = require("./controllers/PokeApiController.js");
-
 app.use("/pokeapi", PokeApiRouter);
 
+const {TeamRouter} = require("./controllers/TeamController.js");
+app.use("/team", TeamRouter);
 
 
 
