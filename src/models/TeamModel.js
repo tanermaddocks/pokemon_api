@@ -5,7 +5,7 @@ const PokemonSchema = new mongoose.Schema({
 	sprite: String,
 	types: {
 		type: [String],
-		validate: [limitArrayLength(2), "Cannot have more than 2 types per Pokemon."]
+		validate:  [limitArrayLength(2), "Cannot have more than 2 types per Pokemon."]
 	},
 	level: {
 		type: Number,
@@ -23,7 +23,8 @@ const TeamSchema = new mongoose.Schema({
 	},
 	trainer: {
 		type: mongoose.Types.ObjectId, 
-		ref: 'User'
+		ref: 'User',
+		required: false
 	}
 });
 
