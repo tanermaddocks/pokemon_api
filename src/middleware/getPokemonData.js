@@ -25,9 +25,9 @@ async function getPokemonData (request, response, next) {
 			return next(new Error("Invalid name provided"));
 		}
 		let receivedData = JSON.parse(jsonString);
-        if (!request.customData) {
-            request.customData = {};
-        }
+		if (!request.customData){
+			request.customData = {};
+		}
 		if (!request.customData?.retrievedPokemon){
 			request.customData.retrievedPokemon = [];
 		}

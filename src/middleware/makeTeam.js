@@ -14,11 +14,13 @@ async function makeTeam (request, response, next){
 			name: pokemon.name,
 			sprite: pokemon.sprites.front_default,
 			types: pokemon.types.map(pokeType => pokeType.type.name),
-            level: Math.floor(Math.random() * 100) + 1,
+			level: Math.floor(Math.random() * 100) + 1
 		})
 	});
 
-    let newTeam = await TeamModel.create(newTeamData)
+	let newTeam = await TeamModel.create(newTeamData);
+
+	request.customData.newTeam = newTeam;
 
 	next();
 }
